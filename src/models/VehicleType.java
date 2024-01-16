@@ -1,6 +1,6 @@
 package models;
 
-public enum VehicleType {
+public enum   VehicleType {
     LARGE,
     MEDIUM,
     SMALL,
