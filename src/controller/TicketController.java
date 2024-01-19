@@ -1,10 +1,8 @@
 package controller;
 
-import DTO.GeneateTicketRequestDto;
+import DTO.GenerateTicketRequestDto;
 import DTO.GenerateTicketResponseDto;
-import models.Gate;
-import models.Ticket;
-import models.Vehicle;
+
 public class TicketController {
 //    public Ticket generateTicket(Vehicle vehicle, Gate gate){
 //        return null;
@@ -17,7 +15,9 @@ public class TicketController {
 //        request -> requestDTO
 //        response -> responseDTO
 //    }
-    public GenerateTicketResponseDto generateTicket(GeneateTicketRequestDto geneateTicketRequestDto){
+    public GenerateTicketResponseDto generateTicket(GenerateTicketRequestDto generateTicketRequestDto){
+//        vehicle Number -> Get the vehicle object
+//        Gate id -> get the gate object
 
     return null;
     }

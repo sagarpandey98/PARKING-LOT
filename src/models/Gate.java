@@ -1,6 +1,8 @@
 package models;
 
 public class Gate extends BaseModel {
+    private GateType gateType;
+    private Operator operator;
     public GateType getGateType() {
         return gateType;
     }
@@ -17,6 +19,5 @@ public class Gate extends BaseModel {
         this.operator = operator;
     }
 
-    private GateType gateType;
-    private Operator operator;
+
 }
