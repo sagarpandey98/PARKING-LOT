@@ -1,6 +1,7 @@
 package services;
 
 import Repositories.TicketRepository;
+import exceptions.NoParkingSpotAvailableException;
 import models.*;
 import strategy.spotAssignmentStrategy.SpotAssignmentStrategy;
 
@@ -17,7 +18,7 @@ public class TicketService {
                 this.spotAssignmentStrategy = spotAssignmentStrategy;
                 this.ticketRepository = ticketRepository;
             }
-    public Ticket generateTicket(String vehicleNumber, VehicleType vehicleType, Long gateId ){
+    public Ticket generateTicket(String vehicleNumber, VehicleType vehicleType, Long gateId ) throws NoParkingSpotAvailableException {
 //        using vehicle number we can fetch the vehicle object
 //        if vehicle object already there then fetch it otherwise create it.
         Vehicle vehicle = vehicleService.getVehicle(vehicleNumber);
@@ -35,6 +36,10 @@ public class TicketService {
 
 //        assign parking spot to the vehicle
         ParkingSpot spot = spotAssignmentStrategy.assginspot(vehicleType, gate);
+        if (spot==null)
+        {
+            throw new NoParkingSpotAvailableException("No Parking spot is available");
+        }
 
         ticket.setParkingSpot(spot);
 

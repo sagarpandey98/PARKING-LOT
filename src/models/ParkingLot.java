@@ -1,6 +1,11 @@
 package models;
 
 import java.util.List;
+//PL-Gate -> 1 : M
+//           1 : 1
+//PL - gate -> 1:M
+// how to represent one-to-many relation in database  :
+// In the Gates table, for every gate we will have the parking lot id.
 
 public class ParkingLot extends BaseModel{
     private List<ParkingFloor> parkingFloors;

@@ -1,9 +1,18 @@
 package controller;
 
-import DTO.GenerateTicketRequestDto;
+import DTO.GeneateTicketRequestDto;
 import DTO.GenerateTicketResponseDto;
+import exceptions.NoParkingSpotAvailableException;
+import models.ResponseStatus;
+import models.Ticket;
+import services.TicketService;
 
 public class TicketController {
+    TicketService ticketService;
+    TicketController(TicketService ticketService)
+    {
+        this.ticketService = ticketService;
+    }
 //    public Ticket generateTicket(Vehicle vehicle, Gate gate){
 //        return null;
 //        issues with generateTicketTicket method:
@@ -15,11 +24,25 @@ public class TicketController {
 //        request -> requestDTO
 //        response -> responseDTO
 //    }
-    public GenerateTicketResponseDto generateTicket(GenerateTicketRequestDto generateTicketRequestDto){
+    public GenerateTicketResponseDto generateTicket(GeneateTicketRequestDto generateTicketRequestDto) throws NoParkingSpotAvailableException {
 //        vehicle Number -> Get the vehicle object
 //        Gate id -> get the gate object
 
-    return null;
+        try{
+            Ticket ticket = ticketService.generateTicket(   generateTicketRequestDto.getVehicleNumber(),
+                    generateTicketRequestDto.getVehicleType(),
+                    generateTicketRequestDto.getGateId());
+            GenerateTicketResponseDto generateTicketResponseDto = new GenerateTicketResponseDto();
+            generateTicketResponseDto.setTicket(ticket);
+            generateTicketResponseDto.setResponseStatus(ResponseStatus.SUCCESS);
+            return generateTicketResponseDto;
+        }
+        catch (NoParkingSpotAvailableException noParkingSpotAvailableException){
+            GenerateTicketResponseDto generateTicketResponseDto = new GenerateTicketResponseDto();
+            generateTicketResponseDto.setTicket(null);
+            generateTicketResponseDto.setResponseStatus(ResponseStatus.FAILURE);
+            return generateTicketResponseDto;
+        }
     }
 
 
