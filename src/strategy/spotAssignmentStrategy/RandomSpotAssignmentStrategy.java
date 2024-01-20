@@ -1,15 +1,22 @@
 package strategy.spotAssignmentStrategy;
 
+import Repositories.ParkingLotRepository;
 import models.Gate;
+import models.ParkingLot;
 import models.ParkingSpot;
 import models.VehicleType;
 
 public class RandomSpotAssignmentStrategy implements SpotAssignmentStrategy{
-
+    ParkingLotRepository parkingLotRepository;
+    public RandomSpotAssignmentStrategy(ParkingLotRepository parkingLotRepository){
+        this.parkingLotRepository = parkingLotRepository;
+    }
     @Override
     public ParkingSpot assginspot(VehicleType vehicleType, Gate gate) {
+
 //        Logic to assign available spot
-//        Do we know the parking lot
+        ParkingLot parkingLot = parkingLotRepository.getParkingLot(gate);
+//        we can add exception here
         return null;
     }
 }
