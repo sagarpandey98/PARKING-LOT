@@ -12,7 +12,7 @@ public class TicketService {
     private GateService gateService;
     private SpotAssignmentStrategy spotAssignmentStrategy;
     private TicketRepository ticketRepository;
-            TicketService(VehicleService vehicleService, GateService gateService, SpotAssignmentStrategy spotAssignmentStrategy,TicketRepository ticketRepository){
+            public TicketService(VehicleService vehicleService, GateService gateService, SpotAssignmentStrategy spotAssignmentStrategy,TicketRepository ticketRepository){
                 this.vehicleService = vehicleService;
                 this.gateService = gateService;
                 this.spotAssignmentStrategy = spotAssignmentStrategy;

@@ -17,6 +17,12 @@ public class RandomSpotAssignmentStrategy implements SpotAssignmentStrategy{
 //        Logic to assign available spot
         ParkingLot parkingLot = parkingLotRepository.getParkingLot(gate);
 //        we can add exception here
+//        List<ParkingSpot> parkingSpots = parkingspotRepository.getParkingspots();
+//        for (ParkingSpot parkingspot : parkingSpots) {
+//            if(parkingspot.getParkingSpotStatus().equals(ParkingSpotStatus.AVAILABLE));
+//            return parkingspot;
+//        }
+
         return null;
     }
 }

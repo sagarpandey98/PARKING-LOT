@@ -9,7 +9,7 @@ import services.TicketService;
 
 public class TicketController {
     TicketService ticketService;
-    TicketController(TicketService ticketService)
+    public TicketController(TicketService ticketService)
     {
         this.ticketService = ticketService;
     }
